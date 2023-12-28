@@ -12,5 +12,6 @@ class Extra extends Model
     protected $fillable = [
         "name",
         "description",
+        "image",
     ];
 }

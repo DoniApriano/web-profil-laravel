@@ -25,16 +25,35 @@
                     <div data-i18n="Analytics">Pengguna</div>
                 </a>
             </li>
-            <li class="menu-item {{ Request::is('dashboard/konfigurasi') ? 'active' : '' }}">
-                <a href="{{ route('configuration.index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-cog"></i>
-                    <div data-i18n="Analytics">Konfigurasi</div>
+            <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') || Request::is('dashboard/galeri') ? 'open' : '' }}"
+                style="">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                    <div data-i18n="Misc">Kegiatan</div>
                 </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') ? 'active' : '' }}">
+                        <a href="{{ route('extra.index') }}" class="menu-link">
+                            <div>Ekstrakurikuler</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('dashboard/galeri') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>Galeri Kegiatan</div>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="menu-item {{ Request::is('dashboard/tentang') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>
                     <div data-i18n="Analytics">Tentang Website</div>
+                </a>
+            </li>
+            <li class="menu-item {{ Request::is('dashboard/konfigurasi') ? 'active' : '' }}">
+                <a href="{{ route('configuration.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-cog"></i>
+                    <div data-i18n="Analytics">Konfigurasi</div>
                 </a>
             </li>
         @endif

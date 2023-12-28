@@ -1,5 +1,5 @@
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="{{ asset('../sneat/assets/img/favicon/favicon.ico')}}" />
+<link rel="icon" type="image/x-icon" href="/storage/icon/" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

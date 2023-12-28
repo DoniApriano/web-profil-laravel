@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\ContributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\admin\ConfigurationController;
+use App\Http\Controllers\admin\ExtraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,4 +46,12 @@ Route::group(['middleware' => 'auth'], function () {
     // About
     Route::get('/dashboard/tentang', [AboutController::class, 'index'])->name('about.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/tentang/store', [AboutController::class, 'store'])->name('about.store')->middleware(['check-role:admin']);
+
+    // Extra
+    Route::get('/dashboard/ekstrakurikuler', [ExtraController::class, 'index'])->name('extra.index')->middleware(['check-role:admin']);
+    Route::get('/dashboard/ekstrakurikuler/{id}', [ExtraController::class, 'show'])->name('extra.show')->middleware(['check-role:admin']);
+    Route::post('/dashboard/ekstrakurikuler/store', [ExtraController::class, 'store'])->name('extra.store')->middleware(['check-role:admin']);
+    Route::post('/dashboard/ekstrakurikuler/update/{id}', [ExtraController::class, 'update'])->name('extra.update')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/ekstrakurikuler/delete/{id}', [ExtraController::class, 'delete'])->name('extra.delete')->middleware(['check-role:admin']);
+
 });
