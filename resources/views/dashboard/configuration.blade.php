@@ -65,7 +65,7 @@
             formData.append('open_hours', $('#open_hours').val());
 
             $.ajax({
-                url: `/konfigurasi/store`,
+                url: `/dashboard/konfigurasi/store`,
                 type: "POST",
                 data: formData,
                 contentType: false,

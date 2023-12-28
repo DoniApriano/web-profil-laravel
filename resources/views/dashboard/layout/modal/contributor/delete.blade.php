@@ -13,7 +13,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: `/pengguna/delete/${user_id}`,
+                    url: `/dashboard/pengguna/delete/${user_id}`,
                     type: "DELETE",
                     cache: false,
                     data: {

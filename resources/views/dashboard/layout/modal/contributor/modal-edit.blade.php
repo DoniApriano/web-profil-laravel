@@ -49,7 +49,7 @@
         let csrfToken = $("meta[name='csrf-token']").attr("content");
 
         $.ajax({
-            url: `/pengguna/update/${user_id}`,
+            url: `/dashboard/pengguna/update/${user_id}`,
             type: "POST",
             data: formData,
             contentType: false,

@@ -48,7 +48,7 @@
         let csrfToken = $("meta[name='csrf-token']").attr("content");
 
         $.ajax({
-            url: `/pengguna/store`,
+            url: `/dashboard/pengguna/store`,
             type: "POST",
             data: formData,
             contentType: false,
