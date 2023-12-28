@@ -40,7 +40,7 @@
             console.log(product_id);
 
             $.ajax({
-                url: `/pengguna/${product_id}`,
+                url: `/dashboard/pengguna/${product_id}`,
                 type: "GET",
                 cache: false,
                 success: function(response) {
