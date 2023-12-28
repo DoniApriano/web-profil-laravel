@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="mb-3">
                     <div class="text-center">
-                        <img id="config-icon" src="storage/icon/{{ $config->icon }}" alt="{{ $config->title }}">
+                        <img id="config-icon" src="/storage/icon/{{ $config->icon }}" alt="{{ $config->title }}">
                     </div>
                     <label for="icon" class="form-label">Gambar</label>
                     <input id="icon" type="file" value="{{ $config->icon }}" name="icon" class="form-control"
@@ -87,7 +87,41 @@
                 },
 
                 error: function(error) {
-                    console.log(error);
+                    if (error.responseJSON.title) {
+                        $('#alert-title').removeClass('d-none');
+                        $('#alert-title').addClass('d-block');
+                        $('#alert-title').html(error.responseJSON.title);
+                    }
+
+                    if (error.responseJSON.icon) {
+                        $('#alert-icon').removeClass('d-none');
+                        $('#alert-icon').addClass('d-block');
+                        $('#alert-icon').html(error.responseJSON.icon);
+                    }
+
+                    if (error.responseJSON.address) {
+                        $('#alert-address').removeClass('d-none');
+                        $('#alert-address').addClass('d-block');
+                        $('#alert-address').html(error.responseJSON.address);
+                    }
+
+                    if (error.responseJSON.phone_number) {
+                        $('#alert-phone-number').removeClass('d-none');
+                        $('#alert-phone-number').addClass('d-block');
+                        $('#alert-phone-number').html(error.responseJSON.phone_number);
+                    }
+
+                    if (error.responseJSON.open_hours) {
+                        $('#alert-open-hours').removeClass('d-none');
+                        $('#alert-open-hours').addClass('d-block');
+                        $('#alert-open-hours').html(error.responseJSON.open_hours);
+                    }
+
+                    if (error.responseJSON.email) {
+                        $('#alert-email').removeClass('d-none');
+                        $('#alert-email').addClass('d-block');
+                        $('#alert-email').html(error.responseJSON.email);
+                    }
                 }
             });
         });
