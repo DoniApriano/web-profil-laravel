@@ -75,7 +75,7 @@
                 },
 
                 success: function(response) {
-                    $('#config-icon').attr('src', 'storage/icon/' + response.data.icon);
+                    $('#config-icon').attr('src', '/storage/icon/' + response.data.icon);
                     console.log(response);
                     Swal.fire({
                         type: 'success',
