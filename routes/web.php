@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\ContributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\AuthController;
@@ -31,14 +32,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Contributor
-    Route::get('/pengguna', [ContributorController::class, 'index'])->name('contributor.index')->middleware(['check-role:admin']);
-    Route::get('/pengguna/{id}', [ContributorController::class, 'show'])->name('contributor.show')->middleware(['check-role:admin']);
-    Route::post('/pengguna/store', [ContributorController::class, 'store'])->name('contributor.store')->middleware(['check-role:admin']);
-    Route::post('/pengguna/update/{id}', [ContributorController::class, 'update'])->name('contributor.update')->middleware(['check-role:admin']);
-    Route::delete('/pengguna/delete/{id}', [ContributorController::class, 'delete'])->name('contributor.delete')->middleware(['check-role:admin']);
+    Route::get('/dashboard/pengguna', [ContributorController::class, 'index'])->name('contributor.index')->middleware(['check-role:admin']);
+    Route::get('/dashboard/pengguna/{id}', [ContributorController::class, 'show'])->name('contributor.show')->middleware(['check-role:admin']);
+    Route::post('/dashboard/pengguna/store', [ContributorController::class, 'store'])->name('contributor.store')->middleware(['check-role:admin']);
+    Route::post('/dashboard/pengguna/update/{id}', [ContributorController::class, 'update'])->name('contributor.update')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/pengguna/delete/{id}', [ContributorController::class, 'delete'])->name('contributor.delete')->middleware(['check-role:admin']);
 
     // Configuration
-    Route::get('/konfigurasi', [ConfigurationController::class, 'index'])->name('configuration.index')->middleware(['check-role:admin']);
-    Route::post('/konfigurasi/store', [ConfigurationController::class, 'store'])->name('configuration.store')->middleware(['check-role:admin']);
+    Route::get('/dashboard/konfigurasi', [ConfigurationController::class, 'index'])->name('configuration.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/konfigurasi/store', [ConfigurationController::class, 'store'])->name('configuration.store')->middleware(['check-role:admin']);
 
+    // About
+    Route::get('/dashboard/tentang', [AboutController::class, 'index'])->name('about.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/tentang/store', [AboutController::class, 'store'])->name('about.store')->middleware(['check-role:admin']);
 });

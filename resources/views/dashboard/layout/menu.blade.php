@@ -31,6 +31,12 @@
                     <div data-i18n="Analytics">Konfigurasi</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('tentang') ? 'active' : '' }}">
+                <a href="{{ route('about.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                    <div data-i18n="Analytics">Tentang Website</div>
+                </a>
+            </li>
         @endif
         @if (Auth::user()->level == 'contributor')
         @endif
