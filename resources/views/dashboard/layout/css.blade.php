@@ -21,6 +21,12 @@
 
 <link rel="stylesheet" href="{{ asset('../sneat/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
+<link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
+
+<script src="{{ asset('datatable/datatable.js') }}"></script>
+<script src="{{ asset('jquery/jquery.js') }}"></script>
+<script src="{{ asset('swalalert/swal.js') }}"></script>
+
 <!-- Page CSS -->
 
 <!-- Helpers -->

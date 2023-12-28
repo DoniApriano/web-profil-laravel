@@ -19,10 +19,14 @@
             </a>
         </li>
         @if (Auth::user()->level == 'admin')
-
+            <li class="menu-item {{ Request::is('pengguna') ? 'active' : '' }}">
+                <a href="{{ route('contributor.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                    <div data-i18n="Analytics">Pengguna</div>
+                </a>
+            </li>
         @endif
         @if (Auth::user()->level == 'contributor')
-
         @endif
     </ul>
 </aside>

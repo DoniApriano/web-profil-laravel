@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ContributorController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,10 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/pengguna', [ContributorController::class, 'index'])->name('contributor.index')->middleware(['check-role:admin']);;
+    Route::get('/pengguna/{id}', [ContributorController::class, 'show'])->name('contributor.show')->middleware(['check-role:admin']);;
+    Route::post('/pengguna/store', [ContributorController::class, 'store'])->name('contributor.store')->middleware(['check-role:admin']);
+    Route::post('/pengguna/update/{id}', [ContributorController::class, 'update'])->name('contributor.update')->middleware(['check-role:admin']);
+    Route::delete('/pengguna/delete/{id}', [ContributorController::class, 'delete'])->name('contributor.delete')->middleware(['check-role:admin']);
 });
