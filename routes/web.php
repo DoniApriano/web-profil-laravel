@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\ContributorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\admin\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,16 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/pengguna', [ContributorController::class, 'index'])->name('contributor.index')->middleware(['check-role:admin']);;
-    Route::get('/pengguna/{id}', [ContributorController::class, 'show'])->name('contributor.show')->middleware(['check-role:admin']);;
+
+    // Contributor
+    Route::get('/pengguna', [ContributorController::class, 'index'])->name('contributor.index')->middleware(['check-role:admin']);
+    Route::get('/pengguna/{id}', [ContributorController::class, 'show'])->name('contributor.show')->middleware(['check-role:admin']);
     Route::post('/pengguna/store', [ContributorController::class, 'store'])->name('contributor.store')->middleware(['check-role:admin']);
     Route::post('/pengguna/update/{id}', [ContributorController::class, 'update'])->name('contributor.update')->middleware(['check-role:admin']);
     Route::delete('/pengguna/delete/{id}', [ContributorController::class, 'delete'])->name('contributor.delete')->middleware(['check-role:admin']);
+
+    // Configuration
+    Route::get('/konfigurasi', [ConfigurationController::class, 'index'])->name('configuration.index')->middleware(['check-role:admin']);
+    Route::post('/konfigurasi/store', [ConfigurationController::class, 'store'])->name('configuration.store')->middleware(['check-role:admin']);
+
 });
