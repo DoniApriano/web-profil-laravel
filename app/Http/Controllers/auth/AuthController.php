@@ -23,7 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->level == "admin") {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('dashboard');
             }
         }
         return back()->with('error', 'Email dan Password tidak cocok');
