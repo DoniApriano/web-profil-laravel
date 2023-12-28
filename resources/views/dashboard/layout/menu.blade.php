@@ -19,19 +19,19 @@
             </a>
         </li>
         @if (Auth::user()->level == 'admin')
-            <li class="menu-item {{ Request::is('pengguna') ? 'active' : '' }}">
+            <li class="menu-item {{ Request::is('dashboard/pengguna') ? 'active' : '' }}">
                 <a href="{{ route('contributor.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-user-circle"></i>
                     <div data-i18n="Analytics">Pengguna</div>
                 </a>
             </li>
-            <li class="menu-item {{ Request::is('konfigurasi') ? 'active' : '' }}">
+            <li class="menu-item {{ Request::is('dashboard/konfigurasi') ? 'active' : '' }}">
                 <a href="{{ route('configuration.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-cog"></i>
                     <div data-i18n="Analytics">Konfigurasi</div>
                 </a>
             </li>
-            <li class="menu-item {{ Request::is('tentang') ? 'active' : '' }}">
+            <li class="menu-item {{ Request::is('dashboard/tentang') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>
                     <div data-i18n="Analytics">Tentang Website</div>
