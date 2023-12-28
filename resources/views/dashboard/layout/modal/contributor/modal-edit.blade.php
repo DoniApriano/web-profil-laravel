@@ -78,6 +78,21 @@
 
             error: function(error) {
                 console.log(error.responseJSON);
+                if (error.responseJSON.name_edit) {
+                    $('#alert-name-edit').removeClass('d-none');
+                    $('#alert-name-edit').addClass('d-block');
+                    $('#alert-name-edit').html(error.responseJSON.name_edit);
+                }
+                if (error.responseJSON.email_edit) {
+                    $('#alert-email-edit').removeClass('d-none');
+                    $('#alert-email-edit').addClass('d-block');
+                    $('#alert-email-edit').html(error.responseJSON.email_edit);
+                }
+                if (error.responseJSON.password_edit) {
+                    $('#alert-password-edit').removeClass('d-none');
+                    $('#alert-password-edit').addClass('d-block');
+                    $('#alert-password-edit').html(error.responseJSON.password_edit);
+                }
             }
         });
     });
