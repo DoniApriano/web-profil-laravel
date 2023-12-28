@@ -47,8 +47,10 @@
         formData.append('level', $('#level').val());
         let csrfToken = $("meta[name='csrf-token']").attr("content");
 
+        var createRoute = "{{ route('contributor.store') }}";
+
         $.ajax({
-            url: `/dashboard/pengguna/store`,
+            url: createRoute,
             type: "POST",
             data: formData,
             contentType: false,

@@ -12,8 +12,10 @@
             confirmButtonText: 'YA, HAPUS!'
         }).then((result) => {
             if (result.isConfirmed) {
+                var deleteRoute = "{{ route('contributor.delete', ['id' => ':user_id']) }}";
+                deleteRoute = deleteRoute.replace(':user_id', user_id);
                 $.ajax({
-                    url: `/dashboard/pengguna/delete/${user_id}`,
+                    url: deleteRoute,
                     type: "DELETE",
                     cache: false,
                     data: {

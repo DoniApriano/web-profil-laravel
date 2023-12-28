@@ -44,8 +44,10 @@
         formData.append('name', $('#name').val());
         formData.append('description', $('#description').val());
 
+        var createRoute = "{{ route('extra.store') }}";
+
         $.ajax({
-            url: `/dashboard/ekstrakurikuler/store`,
+            url: createRoute,
             type: "POST",
             data: formData,
             contentType: false,

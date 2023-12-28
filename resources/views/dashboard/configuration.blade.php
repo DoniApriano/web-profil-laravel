@@ -64,8 +64,10 @@
             formData.append('address', $('#address').val());
             formData.append('open_hours', $('#open_hours').val());
 
+            var createRoute = "{{ route('configuration.store') }}";
+
             $.ajax({
-                url: `/dashboard/konfigurasi/store`,
+                url: createRoute,
                 type: "POST",
                 data: formData,
                 contentType: false,

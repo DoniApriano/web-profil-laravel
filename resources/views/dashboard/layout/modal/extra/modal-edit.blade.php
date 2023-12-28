@@ -49,8 +49,11 @@
         formData.append('image_edit', image_edit);
         let csrfToken = $("meta[name='csrf-token']").attr("content");
 
+        var updateRoute = "{{ route('extra.update', ['id' => ':extra_id']) }}";
+        updateRoute = updateRoute.replace(':extra_id', extra_id);
+
         $.ajax({
-            url: `/dashboard/ekstrakurikuler/update/${extra_id}`,
+            url: updateRoute,
             type: "POST",
             data: formData,
             contentType: false,

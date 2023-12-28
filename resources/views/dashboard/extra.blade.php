@@ -45,8 +45,11 @@
             let extra_id = $(this).data('id');
             console.log(extra_id);
 
+            var showRoute = "{{ route('extra.show', ['id' => ':extra_id']) }}";
+            showRoute = showRoute.replace(':extra_id', extra_id);
+
             $.ajax({
-                url: `/dashboard/ekstrakurikuler/${extra_id}`,
+                url: showRoute,
                 type: "GET",
                 cache: false,
                 success: function(response) {

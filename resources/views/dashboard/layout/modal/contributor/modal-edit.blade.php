@@ -48,8 +48,10 @@
         formData.append('level', $('#level').val());
         let csrfToken = $("meta[name='csrf-token']").attr("content");
 
+        var updateRoute = "{{ route('contributor.update', ['id' => ':user_id']) }}";
+        updateRoute = updateRoute.replace(':user_id', user_id);
         $.ajax({
-            url: `/dashboard/pengguna/update/${user_id}`,
+            url: updateRoute,
             type: "POST",
             data: formData,
             contentType: false,

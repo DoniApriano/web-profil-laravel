@@ -26,8 +26,10 @@
             formData.append('text', $('#text').val());
             console.log($('#text').val());
 
+            var createRoute = "{{ route('about.store') }}";
+
             $.ajax({
-                url: `/dashboard/tentang/store`,
+                url: createRoute,
                 type: "POST",
                 data: formData,
                 contentType: false,

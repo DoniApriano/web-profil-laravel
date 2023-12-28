@@ -36,15 +36,16 @@
     <script>
         $('body').on('click', '#btn-edit', function() {
             //id
-            let product_id = $(this).data('id');
-            console.log(product_id);
+            let user_id = $(this).data('id');
+            console.log(user_id);
+            var showRoute = "{{ route('contributor.show', ['id' => ':user_id']) }}";
+            showRoute = showRoute.replace(':user_id', user_id);
 
             $.ajax({
-                url: `/dashboard/pengguna/${product_id}`,
+                url: showRoute,
                 type: "GET",
                 cache: false,
                 success: function(response) {
-                    console.log(response);
                     $('#user-id').val(response.data.id);
                     $('#name-edit').val(response.data.name);
                     $('#email-edit').val(response.data.email);

@@ -3,6 +3,9 @@
         let extra_id = $(this).data('id');
         let token = $("meta[name='csrf-token']").attr("content");
 
+        var deleteRoute = "{{ route('extra.delete', ['id' => ':extra_id']) }}";
+        deleteRoute = deleteRoute.replace(':extra_id', extra_id);
+
         Swal.fire({
             title: 'Apakah Kamu Yakin?',
             text: "ingin menghapus data ini!",
@@ -13,7 +16,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: `/dashboard/ekstrakurikuler/delete/${extra_id}`,
+                    url: deleteRoute,
                     type: "DELETE",
                     cache: false,
                     data: {
