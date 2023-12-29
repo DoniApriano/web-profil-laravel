@@ -50,14 +50,14 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-item {{ Request::is('dashboard/artikel') || Request::is('dashboard/kategori') ? 'open' : '' }}"
+            <li class="menu-item {{ Request::is('dashboard/semua-artikel') || Request::is('dashboard/kategori-artikel') ? 'open' : '' }}"
                 style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-news"></i>
                     <div data-i18n="Misc">Artikel</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('dashboard/semua-artikel') ? 'active' : '' }}">
                         <a href="{{ route('extra.index') }}" class="menu-link">
                             <div>Semua Artikel</div>
                         </a>

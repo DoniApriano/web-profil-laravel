@@ -13,9 +13,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Gambar</th>
                                 <th>Nama</th>
-                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -26,17 +24,20 @@
             </div>
         </div>
     </div>
+    @include('dashboard.layout.modal.category.modal-input')
+    @include('dashboard.layout.modal.category.delete')
+    @include('dashboard.layout.modal.category.modal-edit')
     <script>
         $('body').on('click', '#btn-open-modal-input', function() {
-            $('#modal-input-extra').modal('show');
+            $('#modal-input-category').modal('show');
         });
         $('body').on('click', '#btn-edit', function() {
             //id
-            let extra_id = $(this).data('id');
-            console.log(extra_id);
+            let category = $(this).data('id');
+            console.log(category);
 
-            var showRoute = "{{ route('extra.show', ['id' => ':extra_id']) }}";
-            showRoute = showRoute.replace(':extra_id', extra_id);
+            var showRoute = "{{ route('category.show', ['id' => ':category']) }}";
+            showRoute = showRoute.replace(':category', category);
 
             $.ajax({
                 url: showRoute,
@@ -44,21 +45,19 @@
                 cache: false,
                 success: function(response) {
                     console.log(response);
-                    $('#image-edit-preview').attr('src', `/storage/extra-image/${response.data.image}`);
-                    $('#extra-id').val(response.data.id);
+                    $('#category-id').val(response.data.id);
                     $('#name-edit').val(response.data.name);
-                    $('#description-edit').val(response.data.description);
 
                     //open modal
-                    $('#modal-edit-extra').modal('show');
+                    $('#modal-edit-category').modal('show');
                 }
             });
         });
         $(document).ready(function() {
-            $('#tbl-extra').DataTable({
+            $('#tbl-category').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('extra.index') }}',
+                ajax: '{{ route('category.index') }}',
                 createdRow: function(row, data, dataIndex) {
                     $(row).attr('id', 'index_' + data.id);
                 },
@@ -68,16 +67,6 @@
                         searchable: false,
                         render: function(data, type, full, meta) {
                             return meta.row + 1;
-                        }
-                    },
-                    {
-                        data: 'image',
-                        name: 'image',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, full, meta) {
-                            return '<img src="' + `/storage/extra-image/${data}` +
-                                '"  width="100" height="100">';
                         }
                     },
                     {

@@ -74,5 +74,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Category Article
     Route::get('/dashboard/kategori-artikel', [CategoryController::class, 'index'])->name('category.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/kategori-artikel/store', [CategoryController::class, 'store'])->name('category.store')->middleware(['check-role:admin']);
+    Route::post('/dashboard/kategori-artikel/update/{id}', [CategoryController::class, 'update'])->name('category.update')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/kategori-artikel/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete')->middleware(['check-role:admin']);
+    Route::get('/dashboard/kategori-artikel/show/{id}', [CategoryController::class, 'show'])->name('category.show')->middleware(['check-role:admin']);
 
 });

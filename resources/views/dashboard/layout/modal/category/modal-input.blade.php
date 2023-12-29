@@ -1,29 +1,19 @@
-<div class="modal fade" id="modal-input-extra" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+<div class="modal fade" id="modal-input-category" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
     role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">
-                    Tambah Ekstrakurikuler
+                    Tambah Kategori Artikel
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="image" class="form-label">Lambang</label>
-                    <input id="image" type="file" value="" name="image" class="form-control" autofocus>
-                    <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-image"></div>
-                </div>
-                <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
                     <input id="name" type="text" value="{{ old('name') }}" name="name" class="form-control"
                         id="name" autofocus>
                     <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-name"></div>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Deskripsi</label>
-                    <textarea id="description" type="text" name="description" class="form-control" id="description">{{ old('description') }}</textarea>
-                    <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-description"></div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -37,14 +27,10 @@
     $('#btn-store').click(function(e) {
         e.preventDefault();
 
-        let image = $('#image')[0].files[0];
-
         let formData = new FormData();
-        formData.append('image', image);
         formData.append('name', $('#name').val());
-        formData.append('description', $('#description').val());
 
-        var createRoute = "{{ route('extra.store') }}";
+        var createRoute = "{{ route('category.store') }}";
 
         $.ajax({
             url: createRoute,
@@ -66,32 +52,19 @@
                     timer: 3000
                 });
                 $('#name').val('');
-                $('#description').val('');
-                $('#image').val('');
 
                 // reload tabel
-                $('#tbl-extra').DataTable().ajax.reload();
+                $('#tbl-category').DataTable().ajax.reload();
 
                 // Tutup
-                $('#modal-input-extra').modal('hide');
+                $('#modal-input-category').modal('hide');
             },
 
             error: function(error) {
-                console.log(error.responseJSON);
                 if (error.responseJSON.name) {
                     $('#alert-name').removeClass('d-none');
                     $('#alert-name').addClass('d-block');
                     $('#alert-name').html(error.responseJSON.name);
-                }
-                if (error.responseJSON.email) {
-                    $('#alert-email').removeClass('d-none');
-                    $('#alert-email').addClass('d-block');
-                    $('#alert-email').html(error.responseJSON.email);
-                }
-                if (error.responseJSON.password) {
-                    $('#alert-password').removeClass('d-none');
-                    $('#alert-password').addClass('d-block');
-                    $('#alert-password').html(error.responseJSON.password);
                 }
             }
         });
