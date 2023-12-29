@@ -15,5 +15,11 @@ class Article extends Model
         "image",
         "category_id",
         "user_id",
+        "slug",
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }
