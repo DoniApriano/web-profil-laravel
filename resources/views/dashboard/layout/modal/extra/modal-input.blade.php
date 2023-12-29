@@ -83,15 +83,15 @@
                     $('#alert-name').addClass('d-block');
                     $('#alert-name').html(error.responseJSON.name);
                 }
-                if (error.responseJSON.email) {
-                    $('#alert-email').removeClass('d-none');
-                    $('#alert-email').addClass('d-block');
-                    $('#alert-email').html(error.responseJSON.email);
+                if (error.responseJSON.image) {
+                    $('#alert-image').removeClass('d-none');
+                    $('#alert-image').addClass('d-block');
+                    $('#alert-image').html(error.responseJSON.image);
                 }
-                if (error.responseJSON.password) {
-                    $('#alert-password').removeClass('d-none');
-                    $('#alert-password').addClass('d-block');
-                    $('#alert-password').html(error.responseJSON.password);
+                if (error.responseJSON.description) {
+                    $('#alert-description').removeClass('d-none');
+                    $('#alert-description').addClass('d-block');
+                    $('#alert-description').html(error.responseJSON.description);
                 }
             }
         });
