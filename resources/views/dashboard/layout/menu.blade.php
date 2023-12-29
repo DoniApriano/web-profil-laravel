@@ -62,6 +62,33 @@
                     <div data-i18n="Analytics">Konfigurasi</div>
                 </a>
             </li>
+            <style>
+                .logout-item {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+                .logout-item button {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    flex-direction: row
+                }
+                .logout-item button:hover {
+                    color: #007bff;
+                }
+            </style>
+            <li class="menu-item logout-item d-flex align-items-center">
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-center btn btn-danger">
+                        <i class="menu-icon tf-icons bx bx-log-out text-white"></i>
+                        <div data-i18n="Analytics" class="text-white">Keluar</div>
+                    </button>
+                </form>
+            </li>
         @endif
         @if (Auth::user()->level == 'contributor')
         @endif

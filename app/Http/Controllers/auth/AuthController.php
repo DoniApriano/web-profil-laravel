@@ -28,4 +28,10 @@ class AuthController extends Controller
         }
         return back()->with('error', 'Email dan Password tidak cocok');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }
