@@ -14,4 +14,9 @@ class Extra extends Model
         "description",
         "image",
     ];
+
+    public function detailExtra()
+    {
+        return $this->hasOne(DetailExtra::class, 'extra_id');
+    }
 }

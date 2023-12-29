@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\admin\ConfigurationController;
 use App\Http\Controllers\admin\ExtraController;
+use App\Http\Controllers\admin\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,4 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/ekstrakurikuler/update/{id}', [ExtraController::class, 'update'])->name('extra.update')->middleware(['check-role:admin']);
     Route::delete('/dashboard/ekstrakurikuler/delete/{id}', [ExtraController::class, 'delete'])->name('extra.delete')->middleware(['check-role:admin']);
 
+    // Gallery
+    Route::get('/dashboard/galeri', [GalleryController::class, 'index'])->name('gallery.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/galeri/store', [GalleryController::class, 'store'])->name('gallery.store')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/galeri/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete')->middleware(['check-role:admin']);
 });

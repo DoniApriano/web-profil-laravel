@@ -12,4 +12,9 @@ class Gallery extends Model
     protected $fillable = [
         "image"
     ];
+
+    public function detailExtra()
+    {
+        return $this->hasOne(DetailExtra::class, 'gallery_id');
+    }
 }

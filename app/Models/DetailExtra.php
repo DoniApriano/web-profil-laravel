@@ -13,4 +13,14 @@ class DetailExtra extends Model
         "extra_id",
         "gallery_id",
     ];
+
+    public function extra()
+    {
+        return $this->belongsTo(Extra::class, 'extra_id');
+    }
+
+    public function gallery()
+    {
+        return $this->belongsTo(Gallery::class, 'gallery_id');
+    }
 }

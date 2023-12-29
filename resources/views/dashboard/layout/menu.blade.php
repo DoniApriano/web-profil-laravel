@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li class="menu-item {{ Request::is('dashboard/galeri') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                        <a href="{{ route('gallery.index') }}" class="menu-link">
                             <div>Galeri Kegiatan</div>
                         </a>
                     </li>

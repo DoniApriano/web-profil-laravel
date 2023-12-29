@@ -26,7 +26,7 @@ class ExtraController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'image'      => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'name'       => 'required|min:5',
+            'name'       => 'required',
             'description'   => 'required',
         ]);
 
@@ -53,8 +53,8 @@ class ExtraController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'image_edit'      =>  $request->hasFile('image_edit') ? 'image|mimes:jpg,png,jpeg,gif,svg|max:2048' : '',
-            'name_edit'       => 'required|min:5',
+            'image_edit'      =>  $request->hasFile('image_edit') ? 'image|mimes:jpg,png,jpeg,gif,svg,webp|max:2048' : '',
+            'name_edit'       => 'required',
             'description_edit'   => 'required',
         ]);
 
