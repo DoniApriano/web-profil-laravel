@@ -75,8 +75,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/artikel', [ArticleController::class, 'index'])->name('article.index')->middleware(['check-role:contributor']);
     Route::get('/dashboard/artikel/{id}', [ArticleController::class,'show'])->name('article.show')->middleware(['check-role:contributor']);
     Route::post('/dashboard/artikel/store', [ArticleController::class,'store'])->name('article.store')->middleware(['check-role:contributor']);
-    Route::post('/dashboard/artikel/update/{id}', [ArticleController::class, 'update'])->name('article.update')->middleware(['check-role:contributor']);
-    Route::delete('/dashboard/artikel/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete')->middleware(['check-role:contributor']);
+    Route::post('/dashboard/artikel/update/{id}', [ArticleController::class, 'update'])->name('article.update')->middleware(['check-role:contributor','article-owner']);
+    Route::delete('/dashboard/artikel/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete')->middleware(['check-role:contributor','article-owner']);
 
     // Category Article
     Route::get('/dashboard/kategori-artikel', [CategoryController::class, 'index'])->name('category.index')->middleware(['check-role:admin']);
