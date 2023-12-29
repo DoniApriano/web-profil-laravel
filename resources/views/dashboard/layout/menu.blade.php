@@ -50,6 +50,25 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/artikel') || Request::is('dashboard/kategori') ? 'open' : '' }}"
+                style="">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-news"></i>
+                    <div data-i18n="Misc">Artikel</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') ? 'active' : '' }}">
+                        <a href="{{ route('extra.index') }}" class="menu-link">
+                            <div>Semua Artikel</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('dashboard/kategori-artikel') ? 'active' : '' }}">
+                        <a href="{{ route('category.index') }}" class="menu-link">
+                            <div>Kategori Artikel</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/tentang') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>

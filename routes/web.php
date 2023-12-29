@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ConfigurationController;
 use App\Http\Controllers\admin\ExtraController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,4 +69,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Home
     Route::get('/dashboard/halaman-utama', [HomeController::class, 'index'])->name('home.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/halaman-utama/store', [HomeController::class, 'store'])->name('home.store')->middleware(['check-role:admin']);
+
+    // Article
+
+    // Category Article
+    Route::get('/dashboard/kategori-artikel', [CategoryController::class, 'index'])->name('category.index')->middleware(['check-role:admin']);
+
 });
