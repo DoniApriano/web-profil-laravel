@@ -7,6 +7,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\admin\ConfigurationController;
 use App\Http\Controllers\admin\ExtraController;
 use App\Http\Controllers\admin\GalleryController;
+use App\Http\Controllers\admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,4 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/galeri', [GalleryController::class, 'index'])->name('gallery.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/galeri/store', [GalleryController::class, 'store'])->name('gallery.store')->middleware(['check-role:admin']);
     Route::delete('/dashboard/galeri/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete')->middleware(['check-role:admin']);
+
+    // Home
+    Route::get('/dashboard/halaman-utama', [HomeController::class, 'index'])->name('home.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/halaman-utama/store', [HomeController::class, 'store'])->name('home.store')->middleware(['check-role:admin']);
 });

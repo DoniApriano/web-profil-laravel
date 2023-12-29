@@ -25,6 +25,12 @@
                     <div data-i18n="Analytics">Pengguna</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/halaman-utama') ? 'active' : '' }}">
+                <a href="{{ route('home.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home"></i>
+                    <div data-i18n="Analytics">Halaman Utama</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') || Request::is('dashboard/galeri') ? 'open' : '' }}"
                 style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
