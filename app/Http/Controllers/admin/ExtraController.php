@@ -68,7 +68,7 @@ class ExtraController extends Controller
             $image = $request->image_edit;
             $image->storeAs('/public/extra-image/' . $image->hashName());
 
-            Storage::delete('/public/extra-image/' . $extra->image_edit);
+            Storage::delete('/public/extra-image/' . $extra->image);
 
             $extra->update([
                 'image'     => $image->hashName(),
@@ -103,6 +103,7 @@ class ExtraController extends Controller
     public function delete($id)
     {
         $extra = Extra::find($id);
+        Storage::delete('/public/extra-image/' . $extra->image);
         $extra->delete();
 
         return response()->json([

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class ArticleController extends Controller
@@ -34,6 +35,7 @@ class ArticleController extends Controller
     public function delete($id)
     {
         $article = Article::find($id);
+        Storage::delete('/public/article/'.$article->image);
         $article->delete();
 
         return response()->json([

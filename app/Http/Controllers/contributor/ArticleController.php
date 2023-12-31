@@ -22,7 +22,7 @@ class ArticleController extends Controller
         if (request()->ajax()) {
             return DataTables::of($articles)->make(true);
         }
-        return view('dashboard.article', compact('pageTitle', 'articles','categories'));
+        return view('dashboard.article', compact('pageTitle', 'articles', 'categories'));
     }
 
     public function store(Request $request)
@@ -73,10 +73,10 @@ class ArticleController extends Controller
         $article = Article::find($id);
 
         if ($request->hasFile('image')) {
-            Storage::delete('/public/article/' . $article->image);
-
             $image = $request->image;
             $image->storeAs('/public/article/' . $image->hashName());
+
+            Storage::delete('/public/article/' . $article->image);
 
             $article->update([
                 'image' => $image->hashName(),
@@ -116,6 +116,7 @@ class ArticleController extends Controller
     public function delete($id)
     {
         $article = Article::find($id);
+        Storage::delete('/public/article/' . $article->image);
         $article->delete();
 
         return response()->json([
