@@ -58,7 +58,7 @@
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item {{ Request::is('dashboard/semua-artikel') ? 'active' : '' }}">
-                        <a href="{{ route('extra.index') }}" class="menu-link">
+                        <a href="{{ route('all-article.index') }}" class="menu-link">
                             <div>Semua Artikel</div>
                         </a>
                     </li>

@@ -5225,6 +5225,10 @@ fieldset:disabled .btn {
   .modal-xl {
     max-width: 50rem;
   }
+
+  .modal-lg-c {
+    max-width: 80rem;
+  }
 }
 
 @media (min-width: 1200px) {

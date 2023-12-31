@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\contributor\ArticleController;
 use App\Http\Controllers\admin\ContributorController;
 use App\Http\Controllers\DashboardController;
@@ -73,10 +74,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Article
     Route::get('/dashboard/artikel', [ArticleController::class, 'index'])->name('article.index')->middleware(['check-role:contributor']);
-    Route::get('/dashboard/artikel/{id}', [ArticleController::class,'show'])->name('article.show')->middleware(['check-role:contributor']);
-    Route::post('/dashboard/artikel/store', [ArticleController::class,'store'])->name('article.store')->middleware(['check-role:contributor']);
-    Route::post('/dashboard/artikel/update/{id}', [ArticleController::class, 'update'])->name('article.update')->middleware(['check-role:contributor','article-owner']);
-    Route::delete('/dashboard/artikel/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete')->middleware(['check-role:contributor','article-owner']);
+    Route::get('/dashboard/artikel/{id}', [ArticleController::class, 'show'])->name('article.show')->middleware(['check-role:contributor']);
+    Route::post('/dashboard/artikel/store', [ArticleController::class, 'store'])->name('article.store')->middleware(['check-role:contributor']);
+    Route::post('/dashboard/artikel/update/{id}', [ArticleController::class, 'update'])->name('article.update')->middleware(['check-role:contributor', 'article-owner']);
+    Route::delete('/dashboard/artikel/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete')->middleware(['check-role:contributor', 'article-owner']);
+
+    //Article Admin
+    Route::get('/dashboard/semua-artikel', [AdminArticleController::class, 'index'])->name('all-article.index')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/artikel/delete/{id}', [AdminArticleController::class, 'delete'])->name('all-article.delete')->middleware(['check-role:admin']);
+    Route::get('/dashboard/artikel/show/{id}', [AdminArticleController::class, 'show'])->name('all-article.show')->middleware(['check-role:admin']);
+
 
     // Category Article
     Route::get('/dashboard/kategori-artikel', [CategoryController::class, 'index'])->name('category.index')->middleware(['check-role:admin']);
