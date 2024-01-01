@@ -58,10 +58,10 @@
         let article_id = $('#article-id').val();
         var editor_edit = CKEDITOR.instances['content-edit'];
         let formData = new FormData();
-        formData.append('image', image);
-        formData.append('title', $('#title-edit').val());
-        formData.append('category_id', $('#category-edit').val());
-        formData.append('content', editor_edit.getData());
+        formData.append('image_edit', image);
+        formData.append('title_edit', $('#title-edit').val());
+        formData.append('category_id_edit', $('#category-edit').val());
+        formData.append('content_edit', editor_edit.getData());
 
         var updateRoute = "{{ route('article.update', ['id' => ':article_id']) }}";
         updateRoute = updateRoute.replace(':article_id', article_id);
@@ -93,25 +93,25 @@
 
             error: function(error) {
                 console.log(error.responseJSON);
-                if (error.responseJSON.title) {
-                    $('#alert-title').removeClass('d-none');
-                    $('#alert-title').addClass('d-block');
-                    $('#alert-title').html(error.responseJSON.title);
+                if (error.responseJSON.title_edit) {
+                    $('#alert-title-edit').removeClass('d-none');
+                    $('#alert-title-edit').addClass('d-block');
+                    $('#alert-title-edit').html(error.responseJSON.title_edit);
                 }
-                if (error.responseJSON.image) {
-                    $('#alert-image').removeClass('d-none');
-                    $('#alert-image').addClass('d-block');
-                    $('#alert-image').html(error.responseJSON.image);
+                if (error.responseJSON.image_edit) {
+                    $('#alert-image-edit').removeClass('d-none');
+                    $('#alert-image-edit').addClass('d-block');
+                    $('#alert-image-edit').html(error.responseJSON.image_edit);
                 }
-                if (error.responseJSON.content) {
-                    $('#alert-content').removeClass('d-none');
-                    $('#alert-content').addClass('d-block');
-                    $('#alert-content').html(error.responseJSON.content);
+                if (error.responseJSON.content_edit) {
+                    $('#alert-content-edit').removeClass('d-none');
+                    $('#alert-content-edit').addClass('d-block');
+                    $('#alert-content-edit').html(error.responseJSON.content_edit);
                 }
-                if (error.responseJSON.category_id) {
-                    $('#alert-category').removeClass('d-none');
-                    $('#alert-category').addClass('d-block');
-                    $('#alert-category').html(error.responseJSON.category_id);
+                if (error.responseJSON.category_id_edit) {
+                    $('#alert-category-edit').removeClass('d-none');
+                    $('#alert-category-edit').addClass('d-block');
+                    $('#alert-category-edit').html(error.responseJSON.category_id_edit);
                 }
             }
         });

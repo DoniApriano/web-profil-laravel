@@ -60,10 +60,10 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'image'     => $request->hasFile('image') ? 'image|mimes:jpg,png,jpeg,gif,svg,webp|max:2048' : '',
-            'title'     => 'required',
-            'content' => 'required',
-            'category_id' => 'required',
+            'image_edit'     => $request->hasFile('image_edit') ? 'image_edit|mimes:jpg,png,jpeg,gif,svg,webp|max:2048' : '',
+            'title_edit'     => 'required',
+            'content_edit' => 'required',
+            'category_id_edit' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -72,7 +72,7 @@ class ArticleController extends Controller
 
         $article = Article::find($id);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image_edit')) {
             $image = $request->image;
             $image->storeAs('/public/article/' . $image->hashName());
 
@@ -80,16 +80,16 @@ class ArticleController extends Controller
 
             $article->update([
                 'image' => $image->hashName(),
-                'title'     => $request->title,
-                'content'     => $request->content,
-                'category_id'     => $request->category_id,
-                'slug' =>  Str::slug($request->title),
+                'title'     => $request->title_edit,
+                'content'     => $request->content_edit,
+                'category_id'     => $request->category_id_edit,
+                'slug' =>  Str::slug($request->title_edit),
             ]);
         } else {
             $article->update([
-                'title'     => $request->title,
-                'content'     => $request->content,
-                'category_id'     => $request->category_id,
+                'title'     => $request->title_edit,
+                'content'     => $request->content_edit,
+                'category_id'     => $request->category_id_edit,
             ]);
         }
 
