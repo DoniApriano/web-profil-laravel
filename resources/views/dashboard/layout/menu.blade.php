@@ -75,6 +75,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/media-sosial') ? 'active' : '' }}">
+                <a href="{{ route('social-media.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-megaphone"></i>
+                    <div data-i18n="Analytics">Media Sosial</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/tentang') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>

@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
+use App\Http\Controllers\admin\SocialMediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -100,4 +101,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/kejuruan/store', [MajorController::class, 'store'])->name('major.store')->middleware(['check-role:admin']);
     Route::post('/dashboard/kejuruan/update/{id}', [MajorController::class, 'update'])->name('major.update')->middleware(['check-role:admin']);
     Route::delete('/dashboard/kejuruan/delete/{id}', [MajorController::class, 'delete'])->name('major.delete')->middleware(['check-role:admin']);
+
+    // Social Media
+    Route::get('/dashboard/media-sosial', [SocialMediaController::class, 'index'])->name('social-media.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/media-sosial/store', [SocialMediaController::class, 'store'])->name('social-media.store')->middleware(['check-role:admin']);
 });
