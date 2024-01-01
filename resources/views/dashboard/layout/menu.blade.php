@@ -50,6 +50,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/kejuruan') ? 'active' : '' }}">
+                <a href="{{ route('major.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-car"></i>
+                    <div data-i18n="Analytics">Kejuruan</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/semua-artikel') || Request::is('dashboard/kategori-artikel') ? 'open' : '' }}"
                 style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">

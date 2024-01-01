@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ExtraController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\MajorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,10 +80,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/artikel/update/{id}', [ArticleController::class, 'update'])->name('article.update')->middleware(['check-role:contributor', 'article-owner']);
     Route::delete('/dashboard/artikel/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete')->middleware(['check-role:contributor', 'article-owner']);
 
+
     //Article Admin
     Route::get('/dashboard/semua-artikel', [AdminArticleController::class, 'index'])->name('all-article.index')->middleware(['check-role:admin']);
-    Route::delete('/dashboard/artikel/delete/{id}', [AdminArticleController::class, 'delete'])->name('all-article.delete')->middleware(['check-role:admin']);
-    Route::get('/dashboard/artikel/show/{id}', [AdminArticleController::class, 'show'])->name('all-article.show')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/all-artikel/delete/{id}', [AdminArticleController::class, 'delete'])->name('all-article.delete')->middleware(['check-role:admin']);
+    Route::get('/dashboard/all-artikel/show/{id}', [AdminArticleController::class, 'show'])->name('all-article.show')->middleware(['check-role:admin']);
 
 
     // Category Article
@@ -91,4 +93,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/kategori-artikel/update/{id}', [CategoryController::class, 'update'])->name('category.update')->middleware(['check-role:admin']);
     Route::delete('/dashboard/kategori-artikel/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete')->middleware(['check-role:admin']);
     Route::get('/dashboard/kategori-artikel/show/{id}', [CategoryController::class, 'show'])->name('category.show')->middleware(['check-role:admin']);
+
+    // Major
+    Route::get('/dashboard/kejuruan', [MajorController::class, 'index'])->name('major.index')->middleware(['check-role:admin']);
+    Route::get('/dashboard/kejuruan/{id}', [MajorController::class, 'show'])->name('major.show')->middleware(['check-role:admin']);
+    Route::post('/dashboard/kejuruan/store', [MajorController::class, 'store'])->name('major.store')->middleware(['check-role:admin']);
+    Route::post('/dashboard/kejuruan/update/{id}', [MajorController::class, 'update'])->name('major.update')->middleware(['check-role:admin']);
+    Route::delete('/dashboard/kejuruan/delete/{id}', [MajorController::class, 'delete'])->name('major.delete')->middleware(['check-role:admin']);
 });
