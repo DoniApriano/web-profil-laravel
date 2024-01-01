@@ -81,6 +81,12 @@
                     <div data-i18n="Analytics">Media Sosial</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/profil-sekolah') ? 'active' : '' }}">
+                <a href="{{ route('profil.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-school"></i>
+                    <div data-i18n="Analytics">Profil Sekolah</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/tentang') ? 'active' : '' }}">
                 <a href="{{ route('about.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>

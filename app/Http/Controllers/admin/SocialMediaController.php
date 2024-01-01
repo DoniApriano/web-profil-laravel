@@ -11,7 +11,7 @@ class SocialMediaController extends Controller
 {
     public function index()
     {
-        $pageTitle = "Tentang";
+        $pageTitle = "Media Sosial";
         $socialMedia = SocialMedia::find(1);
         return view('dashboard.social-media', compact(['pageTitle', 'socialMedia']));
     }

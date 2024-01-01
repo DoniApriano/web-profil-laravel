@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
+use App\Http\Controllers\admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -105,4 +106,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Social Media
     Route::get('/dashboard/media-sosial', [SocialMediaController::class, 'index'])->name('social-media.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/media-sosial/store', [SocialMediaController::class, 'store'])->name('social-media.store')->middleware(['check-role:admin']);
+
+    // Profile
+    Route::get('/dashboard/profil', [ProfileController::class, 'index'])->name('profil.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/profil/store', [ProfileController::class, 'store'])->name('profil.store')->middleware(['check-role:admin']);
 });
