@@ -1,4 +1,4 @@
-@extends('landing-page.layout.app')
+@extends('public.layout.app')
 @section('content')
     <div class="hero overlay">
         <img src="financing/images/blob.svg" alt="" class="img-fluid blob">
@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-7">
-                    <h2 class="heading text-primary">Informasi & Artikel</h2>
+                    <h2 class="heading text-primary" data-aos="fade-up">Informasi & Artikel</h2>
                 </div>
             </div>
             @php
@@ -57,25 +57,35 @@
 
             <div class="row">
                 @foreach ($latestArticle as $la)
-                    <div class="col-sm-6 col-md-4 col-lg-4 rounded">
+                    <div class="col-sm-6 col-md-4 col-lg-4 rounded" data-aos="fade-up">
                         <div class="card post-entry">
-                            <a href="single.html"><img src="storage/article/{{ $la->image }}" class="card-img-top img-fluid" alt="Image"></a>
+                            <a href="single.html"><img src="storage/article/{{ $la->image }}" height="240"
+                                    class="card-img-top" alt="Image"></a>
                             <div class="card-body">
-                                <div><span class="text-uppercase font-weight-bold date">{{ SimpleDate::dayDate($la->created_at) }}</span></div>
-                                <h5 class="card-title"><a href="single.html">{{ $la->title }}</a></h5>
+                                <div><span
+                                        class="text-uppercase font-weight-bold date">{{ SimpleDate::dayDate($la->created_at) }}</span>
+                                </div>
+                                <h5 class="card-title "
+                                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a
+                                        href="single.html">{{ $la->title }}</a></h5>
                                 <p>{!! Str::limit($la->content, 50, '...') !!}</p>
                                 <div class="row">
                                     <div class="col-7">
                                         <p class="mt-5 mb-0">{{ $la->user->name }}</p>
                                     </div>
                                     <div class="col-5">
-                                        <p class="mt-5 mb-0"><a href="#">Read more</a></p>
+                                        <p class="mt-5 mb-0"><a href="#">Lihat Detail</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="row mb-5 mt-3">
+                <div class="col-lg-7">
+                    <h5 class="text-primary text-decoration-underline" data-aos="fade-up"><a href="">Lihat Semua Informasi & Artikel</a></h5>
+                </div>
             </div>
         </div>
     </div>

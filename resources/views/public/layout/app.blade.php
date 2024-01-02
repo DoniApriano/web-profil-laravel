@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
 
-    @include('landing-page.layout.css')
+    @include('public.layout.css')
 
 
     <title>{{ $configuration->title }}</title>
@@ -18,13 +18,13 @@
 
 <body>
 
-    @include('landing-page.layout.navbar')
+    @include('public.layout.navbar')
 
     @yield('content')
 
-    @include('landing-page.layout.footer')
+    @include('public.layout.footer')
 
-    @include('landing-page.layout.js')
+    @include('public.layout.js')
 </body>
 
 </html>

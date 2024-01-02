@@ -21,27 +21,17 @@
                         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                             <li class="active"><a href="index.html">Beranda</a></li>
                             <li class="has-children">
-                                <a href="financing.html">Profil</a>
+                                <a >Profil</a>
                                 <ul class="dropdown">
-                                    <li><a href="financing.html">Financing</a></li>
-                                    <li><a href="single.html">Blog Single</a></li>
-                                    <li><a href="case-study.html">Case Study Detail</a></li>
-                                    <li><a href="#">Menu One</a></li>
-                                    <li><a href="#">Menu Two</a></li>
-                                    <li class="has-children">
-                                        <a href="#">Dropdown</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Sub Menu One</a></li>
-                                            <li><a href="#">Sub Menu Two</a></li>
-                                            <li><a href="#">Sub Menu Three</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="">Sambutan Kepala Sekolah</a></li>
+                                    <li><a href="">Profil Sekolah</a></li>
+                                    <li><a href="">Sejarah Sekolah</a></li>
+                                    <li><a href="">Kompetensi Keahlian</a></li>
+                                    <li><a href="">Ekstrakurikuler</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="blog.html">Informasi & Artikel</a></li>
+                            <li><a href="services.html">Tentang</a></li>
                         </ul>
                     </div>
                     <div class="col-1 text-end">

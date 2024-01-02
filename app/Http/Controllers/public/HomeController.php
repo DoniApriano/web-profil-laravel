@@ -19,7 +19,7 @@ class HomeController extends Controller
         $socialMedia = SocialMedia::find(1);
         $majors = Major::get();
         $latestArticle = Article::latest()->paginate(6);
-        return view('landing-page.home', compact(
+        return view('public.home', compact(
             'configuration',
             'home',
             'socialMedia',
