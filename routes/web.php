@@ -20,6 +20,7 @@ use App\Http\Controllers\public\ArticleController as PublicArticleController;
 use App\Http\Controllers\public\ExtraController as PublicExtraController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
 use App\Http\Controllers\public\MajorController as PublicMajorController;
+use App\Http\Controllers\public\WelcomeTextController as PublicWelcomeTextController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,3 +134,5 @@ Route::get('/artikel',[PublicArticleController::class,'index'])->name('public-ar
 Route::get('/artikel/{slug}',[PublicArticleController::class,'show'])->name('public-article.show');
 
 Route::get('/tentang',[PublicAboutController::class,'index'])->name('public-about.index');
+
+Route::get('/sambutan',[PublicWelcomeTextController::class,'index'])->name('public-welcome.index');
