@@ -4,21 +4,21 @@ namespace App\Http\Controllers\public;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Article;
 use App\Models\Configuration;
-use App\Models\Extra;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
-class ExtraController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {
-        $extras = Extra::get();
+        $articles = Article::latest()->get();
         $configuration = Configuration::find(1);
         $socialMedia = SocialMedia::find(1);
         $about = About::find(1);
-        return view('public.extra', compact(
-            'extras',
+        return view('public.article', compact(
+            'articles',
             'configuration',
             'socialMedia',
             'about'
@@ -27,12 +27,12 @@ class ExtraController extends Controller
 
     public function show($slug)
     {
-        $extra = Extra::where('slug', $slug)->first();
+        $article = Article::where('slug',$slug)->first();
         $configuration = Configuration::find(1);
         $socialMedia = SocialMedia::find(1);
         $about = About::find(1);
-        return view('public.extra-detail', compact(
-            'extra',
+        return view('public.article-detail', compact(
+            'article',
             'configuration',
             'socialMedia',
             'about'

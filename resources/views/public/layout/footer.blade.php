@@ -4,8 +4,7 @@
             <div class="col-lg-4">
                 <div class="widget">
                     <h3>Tentang Website</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts.</p>
+                    <p>{{ $about->text }}</p>
                 </div> <!-- /.widget -->
                 <div class="widget">
                     <h3>Alamat</h3>

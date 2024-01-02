@@ -59,22 +59,22 @@
                 @foreach ($latestArticle as $la)
                     <div class="col-sm-6 col-md-4 col-lg-4 rounded" data-aos="fade-up">
                         <div class="card post-entry">
-                            <a href="single.html"><img src="storage/article/{{ $la->image }}" height="240"
-                                    class="card-img-top" alt="Image"></a>
+                            <img src="storage/article/{{ $la->image }}" height="240"
+                                    class="card-img-top" alt="Image">
                             <div class="card-body">
                                 <div><span
                                         class="text-uppercase font-weight-bold date">{{ SimpleDate::dayDate($la->created_at) }}</span>
                                 </div>
                                 <h5 class="card-title "
                                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a
-                                        href="single.html">{{ $la->title }}</a></h5>
+                                        href="{{ route('public-article.show', $la->slug) }}">{{ $la->title }}</a></h5>
                                 <p>{!! Str::limit($la->content, 50, '...') !!}</p>
                                 <div class="row">
                                     <div class="col-7">
                                         <p class="mt-5 mb-0">{{ $la->user->name }}</p>
                                     </div>
                                     <div class="col-5">
-                                        <p class="mt-5 mb-0"><a href="#">Lihat Detail</a></p>
+                                        <p class="mt-5 mb-0"><a href="{{ route('public-article.show',$la->slug) }}">Lihat Detail</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="row mb-5 mt-3">
                 <div class="col-lg-7">
-                    <h5 class="text-primary text-decoration-underline" data-aos="fade-up"><a href="">Lihat Semua Informasi & Artikel</a></h5>
+                    <h5 class="text-primary text-decoration-underline" data-aos="fade-up"><a href="{{ route('public-article.index') }}">Lihat Semua Informasi & Artikel</a></h5>
                 </div>
             </div>
         </div>

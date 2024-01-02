@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\public\ArticleController as PublicArticleController;
 use App\Http\Controllers\public\ExtraController as PublicExtraController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
 use App\Http\Controllers\public\MajorController as PublicMajorController;
@@ -121,3 +122,6 @@ Route::get('/kompetensi-keahlian/{slug}',[PublicMajorController::class,'show'])-
 
 Route::get('/ekstrakurikuler',[PublicExtraController::class,'index'])->name('public-extra.index');
 Route::get('/ekstrakurikuler/{slug}',[PublicExtraController::class,'show'])->name('public-extra.show');
+
+Route::get('/artikel',[PublicArticleController::class,'index'])->name('public-article.index');
+Route::get('/artikel/{slug}',[PublicArticleController::class,'show'])->name('public-article.show');

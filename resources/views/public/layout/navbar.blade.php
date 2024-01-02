@@ -30,7 +30,7 @@
                                     <li><a href="{{ route('public-extra.index') }}">Ekstrakurikuler</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Informasi & Artikel</a></li>
+                            <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ route('public-article.index') }}">Informasi & Artikel</a></li>
                             <li><a href="services.html">Tentang</a></li>
                         </ul>
                     </div>
