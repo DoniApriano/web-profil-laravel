@@ -19,6 +19,7 @@ use App\Http\Controllers\admin\WelcomeTextController;
 use App\Http\Controllers\public\AboutController as PublicAboutController;
 use App\Http\Controllers\public\ArticleController as PublicArticleController;
 use App\Http\Controllers\public\ExtraController as PublicExtraController;
+use App\Http\Controllers\public\HistoryController as PublicHistoryController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
 use App\Http\Controllers\public\MajorController as PublicMajorController;
 use App\Http\Controllers\public\WelcomeTextController as PublicWelcomeTextController;
@@ -141,3 +142,5 @@ Route::get('/artikel/{slug}',[PublicArticleController::class,'show'])->name('pub
 Route::get('/tentang',[PublicAboutController::class,'index'])->name('public-about.index');
 
 Route::get('/sambutan',[PublicWelcomeTextController::class,'index'])->name('public-welcome.index');
+
+Route::get('/sejarah',[PublicHistoryController::class,'index'])->name('public-history.index');

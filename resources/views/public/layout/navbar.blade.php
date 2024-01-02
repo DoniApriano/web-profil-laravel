@@ -25,7 +25,7 @@
                                 <ul class="dropdown">
                                     <li><a href="{{ route('public-welcome.index') }}">Sambutan Kepala Sekolah</a></li>
                                     <li><a href="">Profil Sekolah</a></li>
-                                    <li><a href="">Sejarah Sekolah</a></li>
+                                    <li><a href="{{ route('public-history.index') }}">Sejarah Sekolah</a></li>
                                     <li><a href="{{ route('public-major.index') }}">Kompetensi Keahlian</a></li>
                                     <li><a href="{{ route('public-extra.index') }}">Ekstrakurikuler</a></li>
                                 </ul>
