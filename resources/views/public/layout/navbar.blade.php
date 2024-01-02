@@ -31,7 +31,7 @@
                                 </ul>
                             </li>
                             <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ route('public-article.index') }}">Informasi & Artikel</a></li>
-                            <li><a href="{{ route('public-about.index') }}">Tentang</a></li>
+                            <li class="{{ Request::is('tentang') ? 'active' : '' }}"><a href="{{ route('public-about.index') }}">Tentang</a></li>
                         </ul>
                     </div>
                     <div class="col-1 text-end">
