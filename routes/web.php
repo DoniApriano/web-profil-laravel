@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\public\HomeController as PublicHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -111,3 +112,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/profil', [ProfileController::class, 'index'])->name('profil.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/profil/store', [ProfileController::class, 'store'])->name('profil.store')->middleware(['check-role:admin']);
 });
+
+Route::get('/',[PublicHomeController::class,'index'])->name('index');
