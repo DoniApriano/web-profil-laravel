@@ -37,6 +37,12 @@
                     <div data-i18n="Analytics">Sambutan</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/sejarah') ? 'active' : '' }}">
+                <a href="{{ route('history.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-map-alt"></i>
+                    <div data-i18n="Analytics">Sejarah</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') || Request::is('dashboard/galeri') ? 'open' : '' }}"
                 style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">

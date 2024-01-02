@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ExtraController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\HistoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
@@ -121,6 +122,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Welcome text
     Route::get('/dashboard/sambutan', [WelcomeTextController::class, 'index'])->name('welcome-text.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/sambutan/store', [WelcomeTextController::class, 'store'])->name('welcome-text.store')->middleware(['check-role:admin']);
+
+    // History
+    Route::get('/dashboard/sejarah', [HistoryController::class, 'index'])->name('history.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/sejarah/store', [HistoryController::class, 'store'])->name('history.store')->middleware(['check-role:admin']);
 });
 
 Route::get('/',[PublicHomeController::class,'index'])->name('index');
