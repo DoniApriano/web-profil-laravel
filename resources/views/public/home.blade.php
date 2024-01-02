@@ -36,7 +36,7 @@
                                 <h3 class="mt-2 fs-6"
                                     style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                     {{ $major->name }}</h3>
-                                <p><a href="#" class="btn btn-outline-primary py-2 px-3">Read more</a></p>
+                                <p><a href="{{ route('public-major.show',$major->slug) }}" class="btn btn-outline-primary py-2 px-3">Selengkapnya</a></p>
                             </div>
                         </div>
                     </div>

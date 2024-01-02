@@ -13,6 +13,7 @@ class Extra extends Model
         "name",
         "description",
         "image",
+        "slug",
     ];
 
     public function detailExtra()

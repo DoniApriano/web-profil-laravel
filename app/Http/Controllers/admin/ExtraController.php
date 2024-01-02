@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Extra;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
@@ -25,7 +25,7 @@ class ExtraController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image'      => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image'      => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp|max:2048',
             'name'       => 'required',
             'description'   => 'required',
         ]);
@@ -41,6 +41,7 @@ class ExtraController extends Controller
             'image'     => $image->hashName(),
             'name'     => $request->name,
             'description'   => $request->description,
+            'slug'   => Str::slug($request->name),
         ]);
 
         return response()->json([
@@ -74,11 +75,13 @@ class ExtraController extends Controller
                 'image'     => $image->hashName(),
                 'name'     => $request->name_edit,
                 'description'   => $request->description_edit,
+                'slug'   => Str::slug($request->name),
             ]);
         } else {
             $extra->update([
                 'name'     => $request->name_edit,
                 'description'   => $request->description_edit,
+                'slug'   => Str::slug($request->name),
             ]);
         }
 

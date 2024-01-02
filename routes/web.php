@@ -14,7 +14,9 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\public\ExtraController as PublicExtraController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
+use App\Http\Controllers\public\MajorController as PublicMajorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -114,3 +116,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/',[PublicHomeController::class,'index'])->name('index');
+Route::get('/kompetensi-keahlian',[PublicMajorController::class,'index'])->name('public-major.index');
+Route::get('/kompetensi-keahlian/{slug}',[PublicMajorController::class,'show'])->name('public-major.show');
+
+Route::get('/ekstrakurikuler',[PublicExtraController::class,'index'])->name('public-extra.index');
+Route::get('/ekstrakurikuler/{slug}',[PublicExtraController::class,'show'])->name('public-extra.show');

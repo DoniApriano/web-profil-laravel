@@ -4,19 +4,19 @@ namespace App\Http\Controllers\public;
 
 use App\Http\Controllers\Controller;
 use App\Models\Configuration;
-use App\Models\Major;
+use App\Models\Extra;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
-class MajorController extends Controller
+class ExtraController extends Controller
 {
     public function index()
     {
-        $majors = Major::get();
+        $extras = Extra::get();
         $configuration = Configuration::find(1);
         $socialMedia = SocialMedia::find(1);
-        return view('public.major', compact(
-            'majors',
+        return view('public.extra', compact(
+            'extras',
             'configuration',
             'socialMedia'
         ));
@@ -24,11 +24,11 @@ class MajorController extends Controller
 
     public function show($slug)
     {
-        $major = Major::where('slug',$slug)->first();
+        $extra = Extra::where('slug', $slug)->first();
         $configuration = Configuration::find(1);
         $socialMedia = SocialMedia::find(1);
-        return view('public.major-detail', compact(
-            'major',
+        return view('public.extra-detail', compact(
+            'extra',
             'configuration',
             'socialMedia'
         ));
