@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\WelcomeTextController;
 use App\Http\Controllers\public\AboutController as PublicAboutController;
 use App\Http\Controllers\public\ArticleController as PublicArticleController;
 use App\Http\Controllers\public\ExtraController as PublicExtraController;
@@ -115,6 +116,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Profile
     Route::get('/dashboard/profil', [ProfileController::class, 'index'])->name('profil.index')->middleware(['check-role:admin']);
     Route::post('/dashboard/profil/store', [ProfileController::class, 'store'])->name('profil.store')->middleware(['check-role:admin']);
+
+    // Welcome text
+    Route::get('/dashboard/sambutan', [WelcomeTextController::class, 'index'])->name('welcome-text.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/sambutan/store', [WelcomeTextController::class, 'store'])->name('welcome-text.store')->middleware(['check-role:admin']);
 });
 
 Route::get('/',[PublicHomeController::class,'index'])->name('index');

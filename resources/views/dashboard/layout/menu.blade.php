@@ -31,6 +31,12 @@
                     <div data-i18n="Analytics">Halaman Utama</div>
                 </a>
             </li>
+            <li class="menu-item {{ Request::is('dashboard/sambutan') ? 'active' : '' }}">
+                <a href="{{ route('welcome-text.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-microphone"></i>
+                    <div data-i18n="Analytics">Sambutan</div>
+                </a>
+            </li>
             <li class="menu-item {{ Request::is('dashboard/ekstrakurikuler') || Request::is('dashboard/galeri') ? 'open' : '' }}"
                 style="">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
