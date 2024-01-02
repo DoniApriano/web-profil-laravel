@@ -65,7 +65,7 @@
                     $('#welcome-text-image-preview').attr('src', '/storage/welcome-image/' + response.data.image);
                     Swal.fire({
                         type: 'success',
-                        image: 'success',
+                        icon: 'success',
                         title: `${response.message}`,
                         showConfirmButton: false,
                         timer: 3000,
