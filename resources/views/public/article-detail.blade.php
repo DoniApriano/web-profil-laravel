@@ -19,7 +19,7 @@
     <div class="section">
         <div class="container article">
             <div class="row justify-content-center align-items-stretch">
-                <article class="col-lg-8 order-lg-2 px-lg-5">
+                <article class="col-lg-8 order-lg-2 px-lg-5 text-justify">
                     <img src="/storage/article/{{ $article->image }}" alt="Image" class="img-fluid rounded">
                     <p>{!! $article->content !!}</p>
                     <div class="pt-5 categories_tags ">
