@@ -15,7 +15,7 @@
             <div class="row mb-5">
                 <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
                     <h2 class="heading text-primary">Deskripsi</h2>
-                    <p class="fs-5">{{ $major->description }}</p>
+                    <p class="fs-5 text-black">{{ $major->description }}</p>
                 </div>
             </div>
         </div>
