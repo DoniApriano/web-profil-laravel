@@ -19,6 +19,7 @@
                 <div class="widget">
                     <h3>Navigation</h3>
                     <ul class="list-unstyled links mb-4">
+                        <li><a href="{{ route('public-history.index') }}">Sejarah Sekolah</a></li>
                         <li><a href="{{ route('public-about.index') }}">Informasi & Artikel</a></li>
                         <li><a href="{{ route('public-about.index') }}">Tentang Website</a></li>
                     </ul>
