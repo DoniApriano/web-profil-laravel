@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MajorController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\public\AboutController as PublicAboutController;
 use App\Http\Controllers\public\ArticleController as PublicArticleController;
 use App\Http\Controllers\public\ExtraController as PublicExtraController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
@@ -125,3 +126,5 @@ Route::get('/ekstrakurikuler/{slug}',[PublicExtraController::class,'show'])->nam
 
 Route::get('/artikel',[PublicArticleController::class,'index'])->name('public-article.index');
 Route::get('/artikel/{slug}',[PublicArticleController::class,'show'])->name('public-article.show');
+
+Route::get('/tentang',[PublicAboutController::class,'index'])->name('public-about.index');
