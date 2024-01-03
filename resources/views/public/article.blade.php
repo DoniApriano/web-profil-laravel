@@ -17,9 +17,9 @@
                 use Nim4n\SimpleDate;
             @endphp
 
-            <div class="row">
+            <div class="row d-flex justify-content-center">
                 @foreach ($articles as $la)
-                    <div class="col-sm-6 col-md-4 col-lg-4 rounded" data-aos="fade-up">
+                    <div class="col-sm-6 col-md-4 col-lg-4 p-2 rounded" data-aos="fade-up">
                         <div class="card post-entry">
                             <img src="storage/article/{{ $la->image }}" height="240" class="card-img-top"
                                 alt="Image">
