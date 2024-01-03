@@ -22,6 +22,7 @@ use App\Http\Controllers\public\ExtraController as PublicExtraController;
 use App\Http\Controllers\public\HistoryController as PublicHistoryController;
 use App\Http\Controllers\public\HomeController as PublicHomeController;
 use App\Http\Controllers\public\MajorController as PublicMajorController;
+use App\Http\Controllers\public\ProfileController as PublicProfileController;
 use App\Http\Controllers\public\WelcomeTextController as PublicWelcomeTextController;
 use Illuminate\Support\Facades\Route;
 
@@ -144,3 +145,5 @@ Route::get('/tentang',[PublicAboutController::class,'index'])->name('public-abou
 Route::get('/sambutan',[PublicWelcomeTextController::class,'index'])->name('public-welcome.index');
 
 Route::get('/sejarah',[PublicHistoryController::class,'index'])->name('public-history.index');
+
+Route::get('/profil-sekolah',[PublicProfileController::class,'index'])->name('public-profile.index');
