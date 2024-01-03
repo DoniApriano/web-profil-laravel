@@ -117,8 +117,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/media-sosial/store', [SocialMediaController::class, 'store'])->name('social-media.store')->middleware(['check-role:admin']);
 
     // Profile
-    Route::get('/dashboard/profil', [ProfileController::class, 'index'])->name('profil.index')->middleware(['check-role:admin']);
-    Route::post('/dashboard/profil/store', [ProfileController::class, 'store'])->name('profil.store')->middleware(['check-role:admin']);
+    Route::get('/dashboard/profil-sekolah', [ProfileController::class, 'index'])->name('profil.index')->middleware(['check-role:admin']);
+    Route::post('/dashboard/profil-sekolah/store', [ProfileController::class, 'store'])->name('profil.store')->middleware(['check-role:admin']);
 
     // Welcome text
     Route::get('/dashboard/sambutan', [WelcomeTextController::class, 'index'])->name('welcome-text.index')->middleware(['check-role:admin']);
