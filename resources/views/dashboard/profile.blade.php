@@ -21,8 +21,7 @@
                 <div class="mb-3">
                     <label for="npsn" class="form-label">NPSN Sekolah</label>
                     <input id="npsn" type="text" name="npsn" class="form-control"
-                        value="{{ old('npsn', $profile->npsn) }}" pattern="[0-9]+"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        value="{{ old('npsn', $profile->npsn) }}">
                     <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-npsn"></div>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -39,7 +38,8 @@
             let formData = new FormData();
             formData.append('name', $('#name').val());
             formData.append('accreditation', $('#accreditation').val());
-            formData.append('npsn', $('#npsn').val());
+            formData.append('npsn', $('#npsn').val().toString());
+            console.log(typeof $('#npsn').val());
             var createRoute = "{{ route('profil.store') }}";
 
             $.ajax({

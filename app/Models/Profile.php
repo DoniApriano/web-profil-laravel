@@ -11,7 +11,7 @@ class Profile extends Model
 
     protected $fillable = [
         "name",
-        "address",
+        "npsn",
         "accreditation",
     ];
 }
